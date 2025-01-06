@@ -1,6 +1,6 @@
-import 'grass_data_model.dart';
+import '../../../models/grass/grass_data_model.dart';
 
-final List<GrassDataModel> studyDataList = [
+final List<GrassDataModel> grassDataList = [
   GrassDataModel(
       studyDay: DateTime(2024, 12, 1).millisecondsSinceEpoch ~/ 1000,
       studyCount: 1),

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import '../../models/grass/grass_data_model.dart';
 
-class StudyGrid extends StatefulWidget {
+class GrassGrid extends StatefulWidget {
   /// studyData 매개변수를 통해 학습 데이터 리스트를 전달받음
-  final List<GrassDataModel> studyData;
+  final List<GrassDataModel> grassData;
 
-  const StudyGrid({super.key, required this.studyData});
+  const GrassGrid({super.key, required this.grassData});
 
   @override
-  _StudyGridState createState() => _StudyGridState();
+  _GrassGridState createState() => _GrassGridState();
 }
 
-class _StudyGridState extends State<StudyGrid> {
+class _GrassGridState extends State<GrassGrid> {
   /// 표시할 주의 개수 (가로 그리드 수)
   final int weeksToShow = 16;
 
@@ -198,7 +198,7 @@ class _StudyGridState extends State<StudyGrid> {
             .millisecondsSinceEpoch ~/
         1000;
 
-    final studyInfo = widget.studyData.firstWhere(
+    final studyInfo = widget.grassData.firstWhere(
       (data) => data.studyDay >= startOfDay && data.studyDay <= endOfDay,
       orElse: () =>
           GrassDataModel(studyDay: 0, studyCount: 0), // 일치하는 데이터가 없을 때의 기본값
