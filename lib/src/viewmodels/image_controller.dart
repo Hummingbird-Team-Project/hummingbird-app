@@ -66,7 +66,7 @@ class ImageController {
 }
 
 
-//사용방법
+// 사용방법
 
 // ImageController _picker = ImageController();
 // Image? _selectedImage;
