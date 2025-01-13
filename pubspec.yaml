@@ -1,7 +1,7 @@
 name: hummingbird
 description: "A new Flutter project."
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -40,7 +40,11 @@ dev_dependencies:
   riverpod_generator: ^2.6.2
   riverpod_lint: ^2.6.2
   envied_generator: ^1.0.0
+  just_audio_background: ^0.0.1-beta.14
+  just_audio: ^0.9.42
 
 flutter:
-
   uses-material-design: true
+
+  assets:
+    - lib/core/mp3/
