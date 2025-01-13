@@ -2,7 +2,13 @@
     <application
         android:label="hummingbird"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/launcher_icon"
+        android:requestLegacyExternalStorage = "true"> <!-- ImagePicker외부 저장소 사용시 필요 -->
+        <!-- Image Cropper 사용시 필요 -->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Ucrop.CropTheme"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
