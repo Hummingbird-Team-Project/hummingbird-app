@@ -48,3 +48,9 @@ flutter:
 
   assets:
     - lib/core/mp3/
+    - lib/core/imgs/images/StudyDuck.png
+
+  fonts:
+    - family: NamumPenScript
+      fonts:
+        - asset: lib/core/font/NanumPenScript-Regular.ttf
