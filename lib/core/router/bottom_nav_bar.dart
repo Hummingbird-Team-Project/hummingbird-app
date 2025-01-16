@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -38,26 +39,26 @@ class BottomNavBar extends StatelessWidget {
             break;
         }
       },
-      items: const [
+      items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home_filled),
-          label: '홈',
+          label: tr('홈'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.groups),
-          label: '소셜',
+          label: tr('소셜'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.timer),
-          label: '타이머',
+          label: tr('타이머'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.pie_chart_rounded),
-          label: '통계',
+          label: tr('통계'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.more_horiz_rounded),
-          label: '더보기',
+          label: tr('더보기'),
         ),
       ],
     );

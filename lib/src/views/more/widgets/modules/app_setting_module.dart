@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hummingbird/core/enum/mxnRate.dart';
 import 'package:hummingbird/src/views/more/widgets/setting_container.dart';
 import 'package:hummingbird/src/views/more/widgets/setting_tile_with_seg.dart';
@@ -47,12 +47,50 @@ class _AppSettingModuleState extends ConsumerState<AppSettingModule> {
       ),
       SettingTile(
         title: '언어',
-        selected: Text(
-          '한국어',
-          style: TextStyle(
-            fontSize: 12.sp,
-            color: Colors.grey[700],
-          ),
+        selected: DropdownButton<Locale>(
+          value: context.locale, // 현재 언어 설정
+          onChanged: (Locale? newLocale) {
+            if (newLocale != null) {
+              setState(() {
+                context.setLocale(newLocale);
+              });
+            }
+          },
+
+          //todo : 다국어 지원을 위한 설정, 배포전 수정 필요
+          // items: [
+          //   DropdownMenuItem(
+          //     value: const Locale('ko', 'KR'),
+          //     child: Text('한국어'),
+          //   ),
+          // ],
+
+          items: [
+            DropdownMenuItem(
+              value: const Locale('ko', 'KR'),
+              child: Text('한국어'),
+            ),
+            DropdownMenuItem(
+              value: const Locale('en', 'US'),
+              child: Text('English'),
+            ),
+            DropdownMenuItem(
+              value: const Locale('ja', 'JP'),
+              child: Text('日本語'),
+            ),
+            DropdownMenuItem(
+              value: const Locale('zh', 'CN'),
+              child: Text('中文'),
+            ),
+            DropdownMenuItem(
+              value: const Locale('vi', 'VN'),
+              child: Text('Tiếng Việt'),
+            ),
+            DropdownMenuItem(
+              value: const Locale('th', 'TH'),
+              child: Text('ไทย'),
+            ),
+          ],
         ),
       ),
     ];

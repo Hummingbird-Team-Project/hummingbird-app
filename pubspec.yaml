@@ -55,6 +55,7 @@ flutter:
     - lib/core/imgs/images/StudyDuck.png
     - lib/core/imgs/icons/
     - lib/core/mp3/
+    - lib/core/translations/
 
   fonts:
     - family: NanumPenScript

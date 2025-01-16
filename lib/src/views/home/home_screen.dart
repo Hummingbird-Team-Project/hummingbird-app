@@ -1,4 +1,5 @@
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,8 +9,8 @@ import 'home_seg2_screen.dart';
 import 'home_seg3_screen.dart';
 
 final List<SegmentTab> _tabs = [
-  const SegmentTab(label: "Timer", backgroundColor: Colors.red),
-  const SegmentTab(label: "Dday", backgroundColor: Colors.orange),
+  const SegmentTab(label: "타이머", backgroundColor: Colors.red),
+  const SegmentTab(label: "디데이", backgroundColor: Colors.orange),
   const SegmentTab(label: "요약", backgroundColor: Colors.yellow),
 ];
 
