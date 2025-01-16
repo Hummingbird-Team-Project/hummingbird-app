@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingTileWithSeg<T> extends StatelessWidget {
   const SettingTileWithSeg(
@@ -20,10 +19,10 @@ class SettingTileWithSeg<T> extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w500,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(fontWeight: FontWeight.w500),
         ),
         const Spacer(),
         SegmentedButton<T>(

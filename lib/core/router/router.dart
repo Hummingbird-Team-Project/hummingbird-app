@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hummingbird/src/views/more/settings_screen.dart';
 
 import '../../src/providers/auth/auth_provider.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/login/login_screen.dart';
-import '../../src/views/more/more_screen.dart';
+import '../../src/views/more/views/more_screen.dart';
+import '../../src/views/more/views/settings/settings_export.dart';
 import '../../src/views/social/views/social_screen.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
@@ -83,13 +83,41 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         ),
         routes: [
           GoRoute(
-            path: 'settings',
-            pageBuilder: (context, state) => buildPageWithDefaultTransition(
-              context: context,
-              state: state,
-              child: const SettingsScreen(),
-            ),
-          )
+              path: 'settings',
+              pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                    context: context,
+                    state: state,
+                    child: const SettingsScreen(),
+                  ),
+              routes: [
+                GoRoute(
+                  path: 'language',
+                  pageBuilder: (context, state) =>
+                      buildPageWithDefaultTransition(
+                    context: context,
+                    state: state,
+                    child: const SelectLanguageScreen(),
+                  ),
+                ),
+                GoRoute(
+                  path: 'country',
+                  pageBuilder: (context, state) =>
+                      buildPageWithDefaultTransition(
+                    context: context,
+                    state: state,
+                    child: const SelectCountryScreen(),
+                  ),
+                ),
+                GoRoute(
+                  path: 'group',
+                  pageBuilder: (context, state) =>
+                      buildPageWithDefaultTransition(
+                    context: context,
+                    state: state,
+                    child: const SelectGroupScreen(),
+                  ),
+                ),
+              ])
         ],
       ),
       GoRoute(

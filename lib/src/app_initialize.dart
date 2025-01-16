@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hummingbird/src/models/setting/app_setting.dart';
+import 'package:hummingbird/src/models/setting/study_setting.dart';
 import 'package:hummingbird/src/models/token_model.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -41,4 +43,10 @@ Future<void> appInitialize() async {
   Hive.registerAdapter(StudyRecordAdapter());
   // await Hive.deleteBoxFromDisk(BoxKeys.studyRecordBoxkey);
   await Hive.openBox<List<StudyRecord>>(BoxKeys.studyRecordBoxkey);
+
+  Hive.registerAdapter(StudySettingAdapter());
+  await Hive.openBox<StudySetting>(BoxKeys.studySettingBoxKey);
+
+  Hive.registerAdapter(AppSettingAdapter());
+  await Hive.openBox<AppSetting>(BoxKeys.appSettingBoxKey);
 }

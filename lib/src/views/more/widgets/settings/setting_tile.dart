@@ -7,39 +7,43 @@ class SettingTile extends StatelessWidget {
       required this.title,
       this.selected,
       this.onTap,
-      this.leading});
+      this.leading,
+      this.trailing,
+      this.padBetweenST});
 
   final String title;
   final Widget? leading;
   final Widget? selected;
+  final Widget? trailing;
+  final double? padBetweenST;
   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
           Text(
             title,
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(fontWeight: FontWeight.w500),
           ),
           const Spacer(),
           selected ?? Text(''),
-          SizedBox(width: 16.w),
-          Icon(
-            Icons.arrow_forward_ios,
-            size: iconSize,
-            color: Colors.grey[700],
-          )
+          SizedBox(width: padBetweenST ?? 16.w),
+          trailing ??
+              Icon(
+                Icons.arrow_forward_ios,
+                size: iconSize,
+                color: Colors.grey[700],
+              )
         ],
       ),
     );
   }
 
-  double get fontSize => 12.sp;
   double get iconSize => 16.w;
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/enum/mxnRate.dart';
-import '../../../../core/widgets/mxnContainer.dart';
+import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/widgets/mxnContainer.dart';
 
 class SettingContainer extends StatelessWidget {
   const SettingContainer(
