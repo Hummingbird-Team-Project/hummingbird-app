@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hummingbird/src/views/more/widgets/settings/modules/app_setting_module.dart';
-import 'package:hummingbird/src/views/more/widgets/settings/modules/study_setting_module.dart';
+
+import '../../widgets/settings/modules/app_setting_module.dart';
+import '../../widgets/settings/modules/study_setting_module.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

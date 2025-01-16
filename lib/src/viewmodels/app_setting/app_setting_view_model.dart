@@ -21,7 +21,7 @@ class AppSettingViewModel extends _$AppSettingViewModel {
     final currentAppSetting = repository.getAppSetting();
     final updatedAppSetting = currentAppSetting.copyWith(
         color: updatedColor ?? currentAppSetting.color,
-        fontSzie: updatedFontSize ?? currentAppSetting.fontSzie,
+        fontSize: updatedFontSize ?? currentAppSetting.fontSize,
         language: updatedLanguate ?? currentAppSetting.language);
     await repository.updateAppSetting(updatedAppSetting);
     state = updatedAppSetting;

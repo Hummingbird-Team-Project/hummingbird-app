@@ -11,7 +11,7 @@ class AppSetting with _$AppSetting {
     @HiveField(0)
     @Default('227C9D')
     String color, //TODO: 디폴트 값 차후 앱 테마 색상 결정하면 수정
-    @HiveField(1) @Default(4) int fontSzie,
+    @HiveField(1) @Default(4) int fontSize,
     @HiveField(2) @Default('ko') String language,
   }) = _AppSetting;
 

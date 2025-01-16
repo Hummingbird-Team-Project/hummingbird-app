@@ -29,9 +29,9 @@ class _AppSettingModuleState extends ConsumerState<AppSettingModule> {
 
   void selectFontSize(Set<FontSize> newSelection) async {
     final updatedFontSize = switch (newSelection.first) {
-      FontSize.SMALL => 0,
+      FontSize.SMALL => 2,
       FontSize.MEDIUM => 4,
-      _ => 8
+      _ => 6
     };
     ref
         .read(appSettingViewModelProvider.notifier)
@@ -39,6 +39,17 @@ class _AppSettingModuleState extends ConsumerState<AppSettingModule> {
     setState(() {
       selectedFontSize = newSelection.first;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    final currentFontSize = ref.read(appSettingViewModelProvider).fontSize;
+    selectedFontSize = switch (currentFontSize) {
+      2 => FontSize.SMALL,
+      4 => FontSize.MEDIUM,
+      _ => FontSize.LARGE,
+    };
   }
 
   @override
