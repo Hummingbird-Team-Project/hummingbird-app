@@ -37,7 +37,7 @@ class MxNcontainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: SizedBox(
         width: _calcPixel(MxN_rate.width),
         height: _calcPixel(MxN_rate.height),
