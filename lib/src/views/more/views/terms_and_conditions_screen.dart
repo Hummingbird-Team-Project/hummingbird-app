@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class TermsAndPrivacyScreen extends StatelessWidget {
+class TermsAndPrivacyScreen extends StatefulWidget {
   const TermsAndPrivacyScreen({super.key});
 
-  Future<void> _launchURL(BuildContext context) async {
+  @override
+  State<TermsAndPrivacyScreen> createState() => _TermsAndPrivacyScreenState();
+}
+
+class _TermsAndPrivacyScreenState extends State<TermsAndPrivacyScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _launchURL();
+  }
+
+  Future<void> _launchURL() async {
     final Uri url = Uri.parse(
-        'https://plip.kr/pcc/16703898-5dde-4455-a4b2-48b4cd47a11c/privacy/1.html'); // URL 수정
+        'https://hazel-wallaby-265.notion.site/Study-Duck-183954afbc8480ed96c2dac4049616df');
 
     try {
       final canLaunchResult = await canLaunchUrl(url);
@@ -19,6 +30,7 @@ class TermsAndPrivacyScreen extends StatelessWidget {
             ),
           );
         }
+        Navigator.pop(context);
         return;
       }
 
@@ -27,13 +39,19 @@ class TermsAndPrivacyScreen extends StatelessWidget {
         mode: LaunchMode.externalApplication,
       );
 
-      if (!launched && context.mounted) {
+      // 브라우저를 닫으면 전페이지으로 복귀
+      if (launched) {
+        if (context.mounted) {
+          Navigator.pop(context);
+        }
+      } else if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('URL을 열 수 없습니다: ${url.toString()}'),
             duration: const Duration(seconds: 2),
           ),
         );
+        Navigator.pop(context); // URL 실행 실패 시 복귀
       }
     } catch (e) {
       if (context.mounted) {
@@ -43,6 +61,7 @@ class TermsAndPrivacyScreen extends StatelessWidget {
             duration: const Duration(seconds: 2),
           ),
         );
+        Navigator.pop(context); // 오류 발생 시 복귀
       }
       debugPrint('URL 실행 중 오류 발생: $e');
     }
@@ -52,13 +71,10 @@ class TermsAndPrivacyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("URL Launcher Example"),
+        title: const Text('Terms and Privacy'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => _launchURL(context),
-          child: const Text('Open URL'),
-        ),
+      body: const Center(
+        child: Text('URL을 실행 중입니다...'),
       ),
     );
   }
