@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.hummingbird">
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- flutter Email Send 사용시 필요 -->
     <queries>
@@ -6,13 +6,22 @@
             <action android:name="android.intent.action.SENDTO" />
             <data android:scheme="mailto" />
         </intent>
+        <!-- flutter url_luncher 사용시 필요 -->
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
     </queries>
     <application
         android:label="StudyDuck"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/launcher_icon"
-        android:requestLegacyExternalStorage = "true"> <!-- ImagePicker외부 저장소 사용시 필요 -->
+        android:requestLegacyExternalStorage="true"> <!-- ImagePicker외부 저장소 사용시 필요 -->
         <!-- Image Cropper 사용시 필요 -->
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
@@ -46,15 +55,4 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
-    <!-- Required to query activities that can process text, see:
-         https://developer.android.com/training/package-visibility and
-         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
-
-         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.PROCESS_TEXT"/>
-            <data android:mimeType="text/plain"/>
-        </intent>
-    </queries>
 </manifest>
